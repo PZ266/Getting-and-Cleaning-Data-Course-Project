@@ -50,18 +50,7 @@ features <- read.table("UCI HAR Dataset/features.txt", col.names = c("n","functi
 > FinalData <- TidyData %>%
 +   group_by(subject, activity) %>%
 +   summarise_all(funs(mean))
-Warning message:
-`funs()` was deprecated in dplyr 0.8.0.
-Please use a list of either functions or lambdas: 
-
-  # Simple named list: 
-  list(mean = mean, median = median)
-
-  # Auto named with `tibble::lst()`: 
-  tibble::lst(mean, median)
-
-  # Using lambdas
-  list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))
+>list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))
 This warning is displayed once every 8 hours.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 
 > write.table(FinalData, "FinalData.txt", row.name=FALSE)
